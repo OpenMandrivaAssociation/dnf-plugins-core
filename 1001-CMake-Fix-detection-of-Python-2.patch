@@ -1,0 +1,25 @@
+From 9f81bf8ec978a18cfe18ac5cf22d2219592c205f Mon Sep 17 00:00:00 2001
+From: Neal Gompa <ngompa13@gmail.com>
+Date: Wed, 22 Nov 2017 13:47:24 +0000
+Subject: [PATCH] CMake: Fix detection of Python 2
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4b1604b..f4f761e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,7 +6,7 @@ if (NOT PYTHON_DESIRED)
+ endif()
+ 
+ if (${PYTHON_DESIRED} STREQUAL "2")
+-	FIND_PACKAGE (PythonInterp REQUIRED)
++	FIND_PACKAGE (PythonInterp 2.7 REQUIRED)
+ else()
+ 	SET(Python_ADDITIONAL_VERSIONS 3.3)
+ 	FIND_PACKAGE(PythonLibs 3.0)
+-- 
+2.14.1
+
