@@ -56,10 +56,11 @@ Provides:	dnf-plugin-reposync = %{version}-%{release}
 Conflicts:	dnf-plugins-extras-common-data < %{dnf_plugins_extra}
 
 %description
-Core Plugins for DNF. This package enhances DNF with the builddep, config-manager,
-%{?_with_copr_plugin:copr, }debug, debuginfo-install, download, needs-restarting,
-repoclosure, repograph, repomanage, and reposync commands. Additionally, it provides
-the generate_completion_cache passive plugin.
+Core Plugins for DNF. This package enhances DNF with the builddep,
+config-manager, %{?_with_copr_plugin:copr, }debug, debuginfo-install,
+download, needs-restarting, repoclosure, repograph, repomanage,
+and reposync commands. Additionally, it provides the
+generate_completion_cache passive plugin.
 
 %package -n python-dnf-plugins-core
 Summary:	Python 3 interface to core plugins for DNF
@@ -88,8 +89,10 @@ Obsoletes:	python-dnf-plugins-extras-repomanage < %{dnf_plugins_extra}
 
 %description -n python-dnf-plugins-core
 Core Plugins for DNF, Python 3 interface. This package enhances DNF with
-the builddep, config-manager, %{?_with_copr_plugin:copr, }debug, debuginfo-install,
-download, needs-restarting, repoclosure, repograph, repomanage, and reposync commands.
+the builddep, config-manager, %{?_with_copr_plugin:copr, }debug,
+debuginfo-install, download, needs-restarting, repoclosure, repograph,
+repomanage, and reposync commands.
+
 Additionally, it provides the generate_completion_cache passive plugin.
 
 %package -n dnf-utils
@@ -176,9 +179,9 @@ Conflicts:	python2-dnf-plugin-versionlock < %{version}-%{release}
 Obsoletes:	python-dnf-plugins-extras-versionlock < %{dnf_plugins_extra}
 
 %description -n python-dnf-plugin-versionlock
-Version lock plugin takes a set of name/versions for packages and excludes all other
-versions of those packages. This allows you to e.g. protect packages from being
-updated by newer versions.
+Version lock plugin takes a set of name/versions for packages
+and excludes all other versions of those packages. This allows
+you to e.g. protect packages from being updated by newer versions.
 
 
 %prep
