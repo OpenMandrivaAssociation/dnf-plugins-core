@@ -212,6 +212,11 @@ ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-debug-dump
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-debug-restore
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yumdownloader
 
+# Purge man page for not installed migrate plugin
+rm -f %{buildroot}%{_mandir}/man8/dnf.plugin.migrate.8*
+
+# Ensure code is byte compiled
+%py_compile %{buildroot}
 
 %check
 PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
