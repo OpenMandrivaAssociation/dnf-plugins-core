@@ -77,7 +77,7 @@ BuildRequires:	python-dnf >= %{dnf_lowest_compatible}
 BuildRequires:	python-dnf < %{dnf_not_compatible}
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
-BuildRequires:	python-sphinxcontrib-websupport
+BuildRequires:	python-setuptools
 Requires:	python-dnf >= %{dnf_lowest_compatible}
 Requires:	python-dnf < %{dnf_not_compatible}
 Requires:	python-hawkey >= %{hawkey_version}
