@@ -5,8 +5,8 @@
 %undefine _nonzero_exit_pkgcheck_terminate_build
 ###
 
-%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 2.7.0}
-%{?!dnf_not_compatible: %global dnf_not_compatible 3.0}
+%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 3.0.0}
+%{?!dnf_not_compatible: %global dnf_not_compatible 4.0}
 %define dnf_plugins_extra 2.0.0
 %define hawkey_version 0.8.0
 
@@ -15,12 +15,12 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	2.1.5
+Version:	3.0.1
 Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
-Source0:	%{url}/archive/%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/rpm-software-management/dnf-plugins-core/archive/%{version}.tar.gz
 
 # OpenMandriva specific patches
 Patch1001:	dnf-plugins-core-2.1.5-Fix-detection-of-Python-2.patch
