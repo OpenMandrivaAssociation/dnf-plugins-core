@@ -35,6 +35,7 @@ BuildRequires:	python3dist(pygobject)
 BuildRequires:	pkgconfig(modulemd)
 BuildRequires:	typelib(Modulemd)
 BuildRequires:	typelib(GObject)
+BuildRequires:	%{_lib}glib-gir2.0
 Requires:	python-dnf-plugins-core = %{version}-%{release}
 Provides:	dnf-command(builddep)
 Provides:	dnf-command(config-manager)
