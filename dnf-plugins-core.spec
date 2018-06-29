@@ -28,6 +28,9 @@ Patch1001:	dnf-plugins-core-2.1.5-Fix-detection-of-Python-2.patch
 BuildArch:	noarch
 BuildRequires:	cmake
 BuildRequires:	gettext
+BuildRequires:	dnf >= 3.0.0
+BuildRequires:	pkgconfig(libdnf) >= 0.15.0
+BuildRequires:	python-libdnf
 Requires:	python-dnf-plugins-core = %{version}-%{release}
 Provides:	dnf-command(builddep)
 Provides:	dnf-command(config-manager)
