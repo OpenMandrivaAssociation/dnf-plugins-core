@@ -31,6 +31,7 @@ BuildRequires:	gettext
 BuildRequires:	dnf >= 3.0.0
 BuildRequires:	pkgconfig(libdnf) >= 0.15.0
 BuildRequires:	python-libdnf
+BuildRequires:	python3dist(pygobject)
 Requires:	python-dnf-plugins-core = %{version}-%{release}
 Provides:	dnf-command(builddep)
 Provides:	dnf-command(config-manager)
