@@ -15,12 +15,12 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	3.0.1
+Version:	3.0.2
 Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
-Source0:	https://github.com/rpm-software-management/dnf-plugins-core/archive/%{version}.tar.gz
+Source0:	https://github.com/rpm-software-management/dnf-plugins-core/archive/%{name}-%{version}.tar.gz
 
 # OpenMandriva specific patches
 Patch1001:	dnf-plugins-core-2.1.5-Fix-detection-of-Python-2.patch
