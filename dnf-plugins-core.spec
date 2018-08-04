@@ -1,10 +1,3 @@
-# (ngompa) disable rpmlint to avoid terrible cyclic dependency problem in rpm5->rpm4 + python2->python3 transition
-# remove after rpm5->rpm4 transition is complete
-%undefine _build_pkgcheck_set
-%undefine _build_pkgcheck_srpm
-%undefine _nonzero_exit_pkgcheck_terminate_build
-###
-
 %{?!dnf_lowest_compatible: %global dnf_lowest_compatible 3.0.0}
 %{?!dnf_not_compatible: %global dnf_not_compatible 4.0}
 %define dnf_plugins_extra 2.0.0
@@ -21,9 +14,6 @@ Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
 Source0:	https://github.com/rpm-software-management/dnf-plugins-core/archive/%{name}-%{version}.tar.gz
-
-# OpenMandriva specific patches
-Patch1001:	dnf-plugins-core-2.1.5-Fix-detection-of-Python-2.patch
 
 BuildArch:	noarch
 BuildRequires:	cmake
