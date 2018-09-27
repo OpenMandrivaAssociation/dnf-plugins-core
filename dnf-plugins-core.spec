@@ -8,7 +8,7 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	3.0.2
+Version:	3.0.4
 Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
