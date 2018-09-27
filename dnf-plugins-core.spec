@@ -1,4 +1,4 @@
-%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 3.0.0}
+%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 3.6.1}
 %{?!dnf_not_compatible: %global dnf_not_compatible 4.0}
 %define dnf_plugins_extra 2.0.0
 %define hawkey_version 0.8.0
@@ -21,11 +21,7 @@ BuildRequires:	gettext
 BuildRequires:	dnf >= 3.0.0
 BuildRequires:	pkgconfig(libdnf) >= 0.15.0
 BuildRequires:	python-libdnf
-BuildRequires:	python3dist(pygobject)
 BuildRequires:	pkgconfig(modulemd)
-BuildRequires:	typelib(Modulemd)
-BuildRequires:	typelib(GObject)
-BuildRequires:	%{_lib}glib-gir2.0
 Requires:	python-dnf-plugins-core = %{version}-%{release}
 Provides:	dnf-command(builddep)
 Provides:	dnf-command(config-manager)
@@ -79,6 +75,7 @@ BuildRequires:	python-setuptools
 Requires:	python-dnf >= %{dnf_lowest_compatible}
 Requires:	python-dnf < %{dnf_not_compatible}
 Requires:	python-hawkey >= %{hawkey_version}
+#Requires:	python3egg(distro)
 
 Conflicts:	%{name} <= 0.1.5
 # let the both python plugin versions be updated simultaneously
@@ -189,7 +186,6 @@ Version lock plugin takes a set of name/versions for packages
 and excludes all other versions of those packages. This allows
 you to e.g. protect packages from being updated by newer versions.
 
-
 %prep
 %autosetup -p1
 
@@ -240,6 +236,17 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %else
 %exclude %{_mandir}/man8/dnf.plugin.copr.*
 %endif
+%{_mandir}/man8/yum-copr.*
+%{_mandir}/man1/debuginfo-install.*
+%{_mandir}/man1/needs-restarting.*
+%{_mandir}/man1/repo-graph.*
+%{_mandir}/man1/repoclosure.*
+%{_mandir}/man1/repomanage.*
+%{_mandir}/man1/reposync.*
+%{_mandir}/man1/yum-builddep.*
+%{_mandir}/man1/yum-config-manager.*
+%{_mandir}/man1/yum-debug-dump.*
+%{_mandir}/man1/yum-debug-restore.*
 %{_mandir}/man8/dnf.plugin.debug.*
 %{_mandir}/man8/dnf.plugin.debuginfo-install.*
 %{_mandir}/man8/dnf.plugin.download.*
@@ -252,6 +259,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %dir %{_sysconfdir}/dnf/protected.d
 %ghost %{_var}/cache/dnf/packages.db
 %config(noreplace) %{_sysconfdir}/dnf/plugins/debuginfo-install.conf
+%config(noreplace) %{_sysconfdir}/dnf/plugins/copr.conf
 
 %files -n python-dnf-plugins-core
 %license COPYING
