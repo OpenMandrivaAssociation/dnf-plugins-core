@@ -334,3 +334,5 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{python3_sitelib}/dnf-plugins/versionlock.*
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
 %{_mandir}/man8/dnf.plugin.versionlock.*
+%{_mandir}/man5/yum-versionlock.conf.5*
+%{_mandir}/man8/yum-versionlock.8*
