@@ -8,7 +8,7 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	3.0.4
+Version:	4.0.0
 Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
@@ -53,7 +53,6 @@ Provides:	dnf-plugin-repoclosure = %{version}-%{release}
 Provides:	dnf-plugin-repograph = %{version}-%{release}
 Provides:	dnf-plugin-repomanage = %{version}-%{release}
 Provides:	dnf-plugin-reposync = %{version}-%{release}
-
 Conflicts:	dnf-plugins-extras-common-data < %{dnf_plugins_extra}
 
 %description
