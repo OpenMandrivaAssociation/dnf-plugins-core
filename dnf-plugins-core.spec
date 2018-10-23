@@ -235,6 +235,9 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %else
 %exclude %{_mandir}/man8/dnf.plugin.copr.*
 %endif
+%{_mandir}/man1/dnf-utils.*
+%{_mandir}/man1/package-cleanup.*
+%{_mandir}/man1/yumdownloader.*
 %{_mandir}/man8/yum-copr.*
 %{_mandir}/man1/debuginfo-install.*
 %{_mandir}/man1/needs-restarting.*
