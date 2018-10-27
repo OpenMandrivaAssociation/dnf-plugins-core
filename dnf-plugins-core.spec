@@ -1,5 +1,4 @@
-%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 3.6.1}
-%{?!dnf_not_compatible: %global dnf_not_compatible 4.0}
+%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 4.0.0}
 %define dnf_plugins_extra 2.0.0
 %define hawkey_version 0.8.0
 
@@ -9,7 +8,7 @@
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
 Version:	4.0.0
-Release:	1
+Release:	2
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
@@ -67,12 +66,10 @@ Summary:	Python 3 interface to core plugins for DNF
 Group:		System/Configuration/Packaging
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python-dnf >= %{dnf_lowest_compatible}
-BuildRequires:	python-dnf < %{dnf_not_compatible}
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python-setuptools
 Requires:	python-dnf >= %{dnf_lowest_compatible}
-Requires:	python-dnf < %{dnf_not_compatible}
 Requires:	python-hawkey >= %{hawkey_version}
 #Requires:	python3egg(distro)
 
@@ -110,7 +107,6 @@ Conflicts:	gdb < 8.0
 Requires:	dnf >= %{dnf_lowest_compatible}
 Requires:	%{name} = %{version}-%{release}
 Requires:	python-dnf >= %{dnf_lowest_compatible}
-Requires:	python-dnf < %{dnf_not_compatible}
 
 %description -n dnf-utils
 As a Yum-utils CLI compatibility layer, supplies in CLI shims for
