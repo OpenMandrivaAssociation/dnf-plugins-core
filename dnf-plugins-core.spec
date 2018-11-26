@@ -242,6 +242,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man1/needs-restarting.*
 %{_mandir}/man1/repo-graph.*
 %{_mandir}/man1/repoclosure.*
+%{_mandir}/man1/repodiff.*
 %{_mandir}/man1/repomanage.*
 %{_mandir}/man1/reposync.*
 %{_mandir}/man1/yum-builddep.*
