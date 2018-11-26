@@ -32,6 +32,7 @@ Provides:	dnf-command(debug-restore)
 Provides:	dnf-command(debuginfo-install)
 Provides:	dnf-command(download)
 Provides:	dnf-command(repoclosure)
+Provides:	dnf-command(repodiff)
 Provides:	dnf-command(repograph)
 Provides:	dnf-command(repomanage)
 Provides:	dnf-command(reposync)
@@ -49,6 +50,7 @@ Provides:	dnf-plugin-download = %{version}-%{release}
 Provides:	dnf-plugin-generate_completion_cache = %{version}-%{release}
 Provides:	dnf-plugin-needs_restarting = %{version}-%{release}
 Provides:	dnf-plugin-repoclosure = %{version}-%{release}
+Provides:	dnf-plugin-repodiff = %{version}-%{release}
 Provides:	dnf-plugin-repograph = %{version}-%{release}
 Provides:	dnf-plugin-repomanage = %{version}-%{release}
 Provides:	dnf-plugin-reposync = %{version}-%{release}
@@ -110,7 +112,7 @@ Requires:	python-dnf >= %{dnf_lowest_compatible}
 
 %description -n dnf-utils
 As a Yum-utils CLI compatibility layer, supplies in CLI shims for
-debuginfo-install, repograph, package-cleanup, repoclosure, repomanage,
+debuginfo-install, repograph, package-cleanup, repoclosure, repodiff, repomanage,
 repoquery, reposync, repotrack, builddep, config-manager, debug, and
 download that use new implementations using DNF.
 
@@ -202,6 +204,7 @@ ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/find-repos-of-install
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/repo-graph
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/package-cleanup
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/repoclosure
+ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/repodiff
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/repomanage
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/repoquery
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/reposync
@@ -251,6 +254,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man8/dnf.plugin.generate_completion_cache.*
 %{_mandir}/man8/dnf.plugin.needs_restarting.*
 %{_mandir}/man8/dnf.plugin.repoclosure.*
+%{_mandir}/man8/dnf.plugin.repodiff.*
 %{_mandir}/man8/dnf.plugin.repograph.*
 %{_mandir}/man8/dnf.plugin.repomanage.*
 %{_mandir}/man8/dnf.plugin.reposync.*
@@ -285,6 +289,8 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/needs_restarting.*
 %{python3_sitelib}/dnf-plugins/repoclosure.py
 %{python3_sitelib}/dnf-plugins/__pycache__/repoclosure.*
+%{python3_sitelib}/dnf-plugins/repodiff.py
+%{python3_sitelib}/dnf-plugins/__pycache__/repodiff.*
 %{python3_sitelib}/dnf-plugins/repograph.py
 %{python3_sitelib}/dnf-plugins/__pycache__/repograph.*
 %{python3_sitelib}/dnf-plugins/repomanage.py
@@ -300,6 +306,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_bindir}/package-cleanup
 %{_bindir}/repo-graph
 %{_bindir}/repoclosure
+%{_bindir}/repodiff
 %{_bindir}/repomanage
 %{_bindir}/repoquery
 %{_bindir}/reposync
