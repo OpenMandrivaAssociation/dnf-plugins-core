@@ -23,6 +23,7 @@ BuildRequires:	python-libdnf
 BuildRequires:	pkgconfig(modulemd)
 Requires:	python-dnf-plugins-core = %{version}-%{release}
 Provides:	dnf-command(builddep)
+Provides:	dnf-command(changelog)
 Provides:	dnf-command(config-manager)
 %if %{with copr_plugin}
 Provides:	dnf-command(copr)
@@ -73,6 +74,7 @@ BuildRequires:	python-sphinx
 BuildRequires:	python-setuptools
 Requires:	python-dnf >= %{dnf_lowest_compatible}
 Requires:	python-hawkey >= %{hawkey_version}
+Requires:	python-dateutil
 #Requires:	python3egg(distro)
 
 Conflicts:	%{name} <= 0.1.5
@@ -238,6 +240,8 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man1/package-cleanup.*
 %{_mandir}/man1/yumdownloader.*
 %{_mandir}/man8/yum-copr.*
+%{_mandir}/man1/yum-changelog.*
+%{_mandir}/man5/yum-changelog.conf.*
 %{_mandir}/man1/debuginfo-install.*
 %{_mandir}/man1/needs-restarting.*
 %{_mandir}/man1/repo-graph.*
@@ -249,6 +253,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man1/yum-config-manager.*
 %{_mandir}/man1/yum-debug-dump.*
 %{_mandir}/man1/yum-debug-restore.*
+%{_mandir}/man8/dnf.plugin.changelog.*
 %{_mandir}/man8/dnf.plugin.debug.*
 %{_mandir}/man8/dnf.plugin.debuginfo-install.*
 %{_mandir}/man8/dnf.plugin.download.*
@@ -278,6 +283,8 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %exclude %{python3_sitelib}/dnf-plugins/copr.*
 %exclude %{python3_sitelib}/dnf-plugins/__pycache__/copr.*
 %endif
+%{python3_sitelib}/dnf-plugins/changelog.py
+%{python3_sitelib}/dnf-plugins/__pycache__/changelog.*
 %{python3_sitelib}/dnf-plugins/debug.py
 %{python3_sitelib}/dnf-plugins/__pycache__/debug.*
 %{python3_sitelib}/dnf-plugins/debuginfo-install.py
