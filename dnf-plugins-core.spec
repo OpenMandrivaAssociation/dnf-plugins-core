@@ -7,12 +7,13 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.0.3
+Version:	4.0.4
 Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
-Source0:	https://github.com/rpm-software-management/dnf-plugins-core/archive/%{name}-%{version}.tar.gz
+Source0:	https://github.com/rpm-software-management/dnf-plugins-core/archive/%{version}.tar.gz
+Patch0:		dnf-plugins-core-4.0.4-sphinx-build.patch
 
 BuildArch:	noarch
 BuildRequires:	cmake

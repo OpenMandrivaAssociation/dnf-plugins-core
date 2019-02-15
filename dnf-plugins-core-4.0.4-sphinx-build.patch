@@ -1,0 +1,15 @@
+diff -up dnf-plugins-core-4.0.4/doc/CMakeLists.txt.omv~ dnf-plugins-core-4.0.4/doc/CMakeLists.txt
+--- dnf-plugins-core-4.0.4/doc/CMakeLists.txt.omv~	2019-02-15 06:39:58.105637018 +0100
++++ dnf-plugins-core-4.0.4/doc/CMakeLists.txt	2019-02-15 06:40:03.790725933 +0100
+@@ -2,9 +2,9 @@
+ # tell sphinx-build to do them both in one go:
+ 
+ if (${PYTHON_VERSION_MAJOR} STREQUAL "2")
+-    SET(SPHINX_BUILD_NAME "sphinx-build")
++    SET(SPHINX_BUILD_NAME "sphinx-build-2")
+ else()
+-    SET(SPHINX_BUILD_NAME "sphinx-build-3")
++    SET(SPHINX_BUILD_NAME "sphinx-build")
+ endif()
+ 
+ ADD_CUSTOM_TARGET (doc-html
