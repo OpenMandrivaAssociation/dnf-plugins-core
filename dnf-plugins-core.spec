@@ -1,4 +1,4 @@
-%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 4.0.0}
+%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 4.2.1}
 %define dnf_plugins_extra 2.0.0
 %define hawkey_version 0.8.0
 
@@ -241,7 +241,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man1/package-cleanup.*
 %{_mandir}/man1/yumdownloader.*
 %{_mandir}/man8/yum-copr.*
-%{_mandir}/man1/yum-changelog.*
+%{_mandir}/man5/yum-changelog.*
 %{_mandir}/man5/yum-changelog.conf.*
 %{_mandir}/man1/debuginfo-install.*
 %{_mandir}/man1/needs-restarting.*
