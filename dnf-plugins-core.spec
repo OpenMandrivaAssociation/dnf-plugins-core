@@ -242,7 +242,6 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man1/yumdownloader.*
 %{_mandir}/man8/yum-copr.*
 %{_mandir}/man1/yum-changelog.*
-%{_mandir}/man1/yum-changelog.conf.*
 %{_mandir}/man1/debuginfo-install.*
 %{_mandir}/man1/needs-restarting.*
 %{_mandir}/man1/repo-graph.*
