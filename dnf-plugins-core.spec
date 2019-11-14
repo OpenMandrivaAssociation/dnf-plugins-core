@@ -1,6 +1,6 @@
-%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 4.2.1}
+%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 4.2.14}
 %define dnf_plugins_extra 2.0.0
-%define hawkey_version 0.8.0
+%define hawkey_version 0.34.0
 
 # Copr targets are not available for OpenMandriva
 %bcond_with copr_plugin
@@ -18,10 +18,6 @@ Patch0:		dnf-plugins-core-4.0.4-sphinx-build.patch
 BuildArch:	noarch
 BuildRequires:	cmake
 BuildRequires:	gettext
-BuildRequires:	dnf >= 3.0.0
-BuildRequires:	pkgconfig(libdnf) >= 0.15.0
-BuildRequires:	python-libdnf
-BuildRequires:	pkgconfig(modulemd)
 Requires:	python-dnf-plugins-core = %{version}-%{release}
 Provides:	dnf-command(builddep)
 Provides:	dnf-command(changelog)
