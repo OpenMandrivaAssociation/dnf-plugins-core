@@ -199,6 +199,7 @@ mv %{buildroot}%{_libexecdir}/dnf-utils-3 %{buildroot}%{_libexecdir}/dnf-utils
 
 mkdir -p %{buildroot}%{_bindir}
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/debuginfo-install
+ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/needs-restarting
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/find-repos-of-install
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/repo-graph
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/package-cleanup
@@ -249,6 +250,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man1/yum-config-manager.*
 %{_mandir}/man1/yum-debug-dump.*
 %{_mandir}/man1/yum-debug-restore.*
+%{_mandir}/man1/yum-utils.1.xz
 %{_mandir}/man8/dnf.plugin.changelog.*
 %{_mandir}/man8/dnf.plugin.debug.*
 %{_mandir}/man8/dnf.plugin.debuginfo-install.*
@@ -306,6 +308,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %files -n dnf-utils
 %{_libexecdir}/dnf-utils
 %{_bindir}/debuginfo-install
+%{_bindir}/needs-restarting
 %{_bindir}/find-repos-of-install
 %{_bindir}/package-cleanup
 %{_bindir}/repo-graph
