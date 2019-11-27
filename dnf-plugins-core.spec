@@ -1,13 +1,13 @@
 %{?!dnf_lowest_compatible: %global dnf_lowest_compatible 4.2.14}
 %define dnf_plugins_extra 2.0.0
-%define hawkey_version 0.34.0
+%define hawkey_version 0.37.0
 
 # Copr targets are not available for OpenMandriva
 %bcond_with copr_plugin
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.0.11
+Version:	4.0.12
 Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
