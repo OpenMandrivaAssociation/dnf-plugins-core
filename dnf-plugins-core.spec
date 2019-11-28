@@ -182,6 +182,16 @@ Version lock plugin takes a set of name/versions for packages
 and excludes all other versions of those packages. This allows
 you to e.g. protect packages from being updated by newer versions.
 
+%package -n python-dnf-plugin-post-transaction-actions
+Summary:	Post transaction actions Plugin for DNF
+Requires:	python-%{name} = %{version}-%{release}
+Provides:       dnf-plugin-post-transaction-actions =  %{version}-%{release}
+
+%description -n python-dnf-plugin-post-transaction-actions
+Post transaction actions Plugin for DNF, Python 3 version. Plugin runs actions
+(shell commands) after transaction is completed. Actions are defined in action
+files.
+
 %prep
 %autosetup -p1
 
@@ -348,3 +358,10 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man8/dnf-versionlock.*
 %{_mandir}/man5/yum-versionlock.conf.5*
 %{_mandir}/man8/yum-versionlock.8*
+
+%files -n python-dnf-plugin-post-transaction-actions
+%config(noreplace) %{_sysconfdir}/dnf/plugins/post-transaction-actions.conf
+%config(noreplace) %{_sysconfdir}/dnf/plugins/post-transaction-actions.d
+%{python3_sitelib}/dnf-plugins/post-transaction-actions.*
+%{python3_sitelib}/dnf-plugins/__pycache__/post-transaction-actions.*
+%{_mandir}/man8/dnf-post-transaction-actions.*
