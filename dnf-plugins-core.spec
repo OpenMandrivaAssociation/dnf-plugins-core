@@ -228,7 +228,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %license COPYING
 %doc AUTHORS README.rst
 %{_mandir}/man8/dnf-builddep.*
-%{_mandir}/man8/dnf-config_manager.*
+%{_mandir}/man8/dnf-config-manager.*
 %if %{with copr_plugin}
 %{_mandir}/man8/dnf-.copr.*
 %else
@@ -256,7 +256,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man8/dnf-debuginfo-install.*
 %{_mandir}/man8/dnf-download.*
 %{_mandir}/man8/dnf-generate_completion_cache.*
-%{_mandir}/man8/dnf-needs_restarting.*
+%{_mandir}/man1/dnf-needs-restarting.*
 %{_mandir}/man8/dnf-repoclosure.*
 %{_mandir}/man8/dnf-repodiff.*
 %{_mandir}/man8/dnf-repograph.*
