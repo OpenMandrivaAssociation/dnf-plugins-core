@@ -216,7 +216,7 @@ ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-debug-restore
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yumdownloader
 
 # Purge man page for not installed migrate plugin
-rm -f %{buildroot}%{_mandir}/man8/dnf.plugin.migrate.8*
+rm -f %{buildroot}%{_mandir}/man8/dnf-migrate.8*
 
 # Ensure code is byte compiled
 %py_compile %{buildroot}
@@ -227,12 +227,12 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %files -f %{name}.lang
 %license COPYING
 %doc AUTHORS README.rst
-%{_mandir}/man8/dnf.plugin.builddep.*
-%{_mandir}/man8/dnf.plugin.config_manager.*
+%{_mandir}/man8/dnf-builddep.*
+%{_mandir}/man8/dnf-config_manager.*
 %if %{with copr_plugin}
-%{_mandir}/man8/dnf.plugin.copr.*
+%{_mandir}/man8/dnf-.copr.*
 %else
-%exclude %{_mandir}/man8/dnf.plugin.copr.*
+%exclude %{_mandir}/man8/dnf-copr.*
 %endif
 %{_mandir}/man1/dnf-utils.*
 %{_mandir}/man1/package-cleanup.*
@@ -251,17 +251,17 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man1/yum-debug-dump.*
 %{_mandir}/man1/yum-debug-restore.*
 %{_mandir}/man1/yum-utils.1.xz
-%{_mandir}/man8/dnf.plugin.changelog.*
-%{_mandir}/man8/dnf.plugin.debug.*
-%{_mandir}/man8/dnf.plugin.debuginfo-install.*
-%{_mandir}/man8/dnf.plugin.download.*
-%{_mandir}/man8/dnf.plugin.generate_completion_cache.*
-%{_mandir}/man8/dnf.plugin.needs_restarting.*
-%{_mandir}/man8/dnf.plugin.repoclosure.*
-%{_mandir}/man8/dnf.plugin.repodiff.*
-%{_mandir}/man8/dnf.plugin.repograph.*
-%{_mandir}/man8/dnf.plugin.repomanage.*
-%{_mandir}/man8/dnf.plugin.reposync.*
+%{_mandir}/man8/dnf-changelog.*
+%{_mandir}/man8/dnf-debug.*
+%{_mandir}/man8/dnf-debuginfo-install.*
+%{_mandir}/man8/dnf-download.*
+%{_mandir}/man8/dnf-generate_completion_cache.*
+%{_mandir}/man8/dnf-needs_restarting.*
+%{_mandir}/man8/dnf-repoclosure.*
+%{_mandir}/man8/dnf-repodiff.*
+%{_mandir}/man8/dnf-repograph.*
+%{_mandir}/man8/dnf-repomanage.*
+%{_mandir}/man8/dnf-reposync.*
 %dir %{_sysconfdir}/dnf/protected.d
 %ghost %{_var}/cache/dnf/packages.db
 %config(noreplace) %{_sysconfdir}/dnf/plugins/debuginfo-install.conf
@@ -327,24 +327,24 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %files -n python-dnf-plugin-leaves
 %{python3_sitelib}/dnf-plugins/leaves.*
 %{python3_sitelib}/dnf-plugins/__pycache__/leaves.*
-%{_mandir}/man8/dnf.plugin.leaves.*
+%{_mandir}/man8/dnf-leaves.*
 
 %files -n python-dnf-plugin-local
 %config(noreplace) %{_sysconfdir}/dnf/plugins/local.conf
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
-%{_mandir}/man8/dnf.plugin.local.*
+%{_mandir}/man8/dnf-local.*
 
 %files -n python-dnf-plugin-show-leaves
 %{python3_sitelib}/dnf-plugins/show_leaves.*
 %{python3_sitelib}/dnf-plugins/__pycache__/show_leaves.*
-%{_mandir}/man8/dnf.plugin.show-leaves.*
+%{_mandir}/man8/dnf-show-leaves.*
 
 %files -n python-dnf-plugin-versionlock
 %config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.conf
 %config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.list
 %{python3_sitelib}/dnf-plugins/versionlock.*
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
-%{_mandir}/man8/dnf.plugin.versionlock.*
+%{_mandir}/man8/dnf-versionlock.*
 %{_mandir}/man5/yum-versionlock.conf.5*
 %{_mandir}/man8/yum-versionlock.8*
