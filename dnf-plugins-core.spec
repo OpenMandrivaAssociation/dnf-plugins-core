@@ -7,8 +7,8 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.0.12
-Release:	2
+Version:	4.0.13
+Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
@@ -64,7 +64,7 @@ generate_completion_cache passive plugin.
 %package -n python-dnf-plugins-core
 Summary:	Python 3 interface to core plugins for DNF
 Group:		System/Configuration/Packaging
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python-dnf >= %{dnf_lowest_compatible}
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
@@ -196,7 +196,7 @@ files.
 %autosetup -p1
 
 %build
-%cmake -DPYTHON_DESIRED:str=3
+%cmake -DPYTHON_DESIRED:FILEPATH="%{__python3}"
 %make_build
 make doc-man
 
@@ -225,9 +225,6 @@ ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-debug-dump
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-debug-restore
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yumdownloader
 
-# Purge man page for not installed migrate plugin
-rm -f %{buildroot}%{_mandir}/man8/dnf-migrate.8*
-
 # Ensure code is byte compiled
 %py_compile %{buildroot}
 
@@ -240,27 +237,10 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man8/dnf-builddep.*
 %{_mandir}/man8/dnf-config-manager.*
 %if %{with copr_plugin}
-%{_mandir}/man8/dnf-.copr.*
+%{_mandir}/man8/dnf-copr.*
 %else
 %exclude %{_mandir}/man8/dnf-copr.*
 %endif
-%{_mandir}/man1/dnf-utils.*
-%{_mandir}/man1/package-cleanup.*
-%{_mandir}/man1/yumdownloader.*
-%{_mandir}/man8/yum-copr.*
-%{_mandir}/man1/yum-changelog.*
-%{_mandir}/man1/debuginfo-install.*
-%{_mandir}/man1/needs-restarting.*
-%{_mandir}/man1/repo-graph.*
-%{_mandir}/man1/repoclosure.*
-%{_mandir}/man1/repodiff.*
-%{_mandir}/man1/repomanage.*
-%{_mandir}/man1/reposync.*
-%{_mandir}/man1/yum-builddep.*
-%{_mandir}/man1/yum-config-manager.*
-%{_mandir}/man1/yum-debug-dump.*
-%{_mandir}/man1/yum-debug-restore.*
-%{_mandir}/man1/yum-utils.1.xz
 %{_mandir}/man8/dnf-changelog.*
 %{_mandir}/man8/dnf-debug.*
 %{_mandir}/man8/dnf-debuginfo-install.*
@@ -333,6 +313,23 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_bindir}/yum-debug-dump
 %{_bindir}/yum-debug-restore
 %{_bindir}/yumdownloader
+%{_mandir}/man1/dnf-utils.*
+%{_mandir}/man1/package-cleanup.*
+%{_mandir}/man1/yumdownloader.*
+%{_mandir}/man8/yum-copr.*
+%{_mandir}/man1/yum-changelog.*
+%{_mandir}/man1/debuginfo-install.*
+%{_mandir}/man1/needs-restarting.*
+%{_mandir}/man1/repo-graph.*
+%{_mandir}/man1/repoclosure.*
+%{_mandir}/man1/repodiff.*
+%{_mandir}/man1/repomanage.*
+%{_mandir}/man1/reposync.*
+%{_mandir}/man1/yum-builddep.*
+%{_mandir}/man1/yum-config-manager.*
+%{_mandir}/man1/yum-debug-dump.*
+%{_mandir}/man1/yum-debug-restore.*
+%{_mandir}/man1/yum-utils.1.*
 
 %files -n python-dnf-plugin-leaves
 %{python3_sitelib}/dnf-plugins/leaves.*
