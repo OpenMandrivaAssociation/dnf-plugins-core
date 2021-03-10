@@ -1,14 +1,14 @@
 %{?!dnf_lowest_compatible: %global dnf_lowest_compatible 4.2.14}
 %define dnf_plugins_extra 2.0.0
-%define hawkey_version 0.37.0
+%define hawkey_version 0.46.1
 
 # Copr targets are not available for OpenMandriva
 %bcond_with copr_plugin
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.0.18
-Release:	2
+Version:	4.0.19
+Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
@@ -29,6 +29,7 @@ Provides:	dnf-command(debug-dump)
 Provides:	dnf-command(debug-restore)
 Provides:	dnf-command(debuginfo-install)
 Provides:	dnf-command(download)
+Provides:	dnf-command(groups-manager)
 Provides:	dnf-command(repoclosure)
 Provides:	dnf-command(repodiff)
 Provides:	dnf-command(repograph)
@@ -47,6 +48,7 @@ Provides:	dnf-plugin-debuginfo-install = %{version}-%{release}
 Provides:	dnf-plugin-download = %{version}-%{release}
 Provides:	dnf-plugin-generate_completion_cache = %{version}-%{release}
 Provides:	dnf-plugin-needs_restarting = %{version}-%{release}
+Provides:	dnf-plugin-groups-manager = %{version}-%{release}
 Provides:	dnf-plugin-repoclosure = %{version}-%{release}
 Provides:	dnf-plugin-repodiff = %{version}-%{release}
 Provides:	dnf-plugin-repograph = %{version}-%{release}
@@ -57,7 +59,7 @@ Conflicts:	dnf-plugins-extras-common-data < %{dnf_plugins_extra}
 %description
 Core Plugins for DNF. This package enhances DNF with the builddep,
 config-manager, %{?_with_copr_plugin:copr, }debug, debuginfo-install,
-download, needs-restarting, repoclosure, repograph, repomanage,
+download, needs-restarting, groups-manager, repoclosure, repograph, repomanage,
 and reposync commands. Additionally, it provides the
 generate_completion_cache passive plugin.
 
@@ -66,11 +68,13 @@ Summary:	Python 3 interface to core plugins for DNF
 Group:		System/Configuration/Packaging
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python-dnf >= %{dnf_lowest_compatible}
+BuildRequires:	dbus-python
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python-setuptools
 Requires:	python-dnf >= %{dnf_lowest_compatible}
 Requires:	python-hawkey >= %{hawkey_version}
+Requires:	dbus-python
 Requires:	python-dateutil
 #Requires:	python3egg(distro)
 
@@ -90,7 +94,7 @@ Obsoletes:	python-dnf-plugins-extras-repomanage < %{dnf_plugins_extra}
 %description -n python-dnf-plugins-core
 Core Plugins for DNF, Python 3 interface. This package enhances DNF with
 the builddep, config-manager, %{?_with_copr_plugin:copr, }debug,
-debuginfo-install, download, needs-restarting, repoclosure, repograph,
+debuginfo-install, download, needs-restarting, groups-manager, repoclosure, repograph,
 repomanage, and reposync commands.
 
 Additionally, it provides the generate_completion_cache passive plugin.
@@ -111,7 +115,7 @@ Requires:	python-dnf >= %{dnf_lowest_compatible}
 
 %description -n dnf-utils
 As a Yum-utils CLI compatibility layer, supplies in CLI shims for
-debuginfo-install, repograph, package-cleanup, repoclosure, repodiff, repomanage,
+debuginfo-install, repograph, package-cleanup, groups-manager, repoclosure, repodiff, repomanage,
 repoquery, reposync, repotrack, builddep, config-manager, debug, and
 download that use new implementations using DNF.
 
@@ -223,6 +227,7 @@ ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-builddep
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-config-manager
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-debug-dump
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-debug-restore
+ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-groups-manager
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yumdownloader
 
 # Ensure code is byte compiled
@@ -246,6 +251,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man8/dnf-debuginfo-install.*
 %{_mandir}/man8/dnf-download.*
 %{_mandir}/man8/dnf-generate_completion_cache.*
+%{_mandir}/man8/dnf-groups-manager.*
 %{_mandir}/man8/dnf-needs-restarting.*
 %{_mandir}/man8/dnf-repoclosure.*
 %{_mandir}/man8/dnf-repodiff.*
@@ -281,6 +287,8 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/download.*
 %{python3_sitelib}/dnf-plugins/generate_completion_cache.py
 %{python3_sitelib}/dnf-plugins/__pycache__/generate_completion_cache.*
+%{python3_sitelib}/dnf-plugins/groups_manager.py
+%{python3_sitelib}/dnf-plugins/__pycache__/groups_manager.*
 %{python3_sitelib}/dnf-plugins/needs_restarting.py
 %{python3_sitelib}/dnf-plugins/__pycache__/needs_restarting.*
 %{python3_sitelib}/dnf-plugins/repoclosure.py
@@ -312,6 +320,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_bindir}/yum-config-manager
 %{_bindir}/yum-debug-dump
 %{_bindir}/yum-debug-restore
+%{_bindir}/yum-groups-manager
 %{_bindir}/yumdownloader
 %{_mandir}/man1/dnf-utils.*
 %{_mandir}/man1/package-cleanup.*
@@ -319,6 +328,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
 %{_mandir}/man8/yum-copr.*
 %{_mandir}/man1/yum-changelog.*
 %{_mandir}/man1/debuginfo-install.*
+%{_mandir}/man1/yum-groups-manager.*
 %{_mandir}/man1/needs-restarting.*
 %{_mandir}/man1/repo-graph.*
 %{_mandir}/man1/repoclosure.*
