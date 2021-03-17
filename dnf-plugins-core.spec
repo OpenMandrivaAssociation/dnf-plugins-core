@@ -8,7 +8,7 @@
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
 Version:	4.0.19
-Release:	1
+Release:	2
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
@@ -74,7 +74,7 @@ BuildRequires:	python-sphinx
 BuildRequires:	python-setuptools
 Requires:	python-dnf >= %{dnf_lowest_compatible}
 Requires:	python-hawkey >= %{hawkey_version}
-Requires:	dbus-python
+Suggests:	dbus-python
 Requires:	python-dateutil
 #Requires:	python3egg(distro)
 
