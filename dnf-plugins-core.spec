@@ -7,8 +7,8 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.0.19
-Release:	2
+Version:	4.0.21
+Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
@@ -69,7 +69,6 @@ Group:		System/Configuration/Packaging
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python-dnf >= %{dnf_lowest_compatible}
 BuildRequires:	dbus-python
-BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python-setuptools
 Requires:	python-dnf >= %{dnf_lowest_compatible}
@@ -234,7 +233,7 @@ ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yumdownloader
 %py_compile %{buildroot}
 
 %check
-PYTHONPATH=./plugins /usr/bin/nosetests -s tests/
+ctest -VV
 
 %files -f %{name}.lang
 %license COPYING
