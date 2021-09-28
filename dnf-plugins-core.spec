@@ -7,7 +7,7 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.0.22
+Version:	4.0.23
 Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
@@ -238,25 +238,25 @@ ctest -VV
 %files -f %{name}.lang
 %license COPYING
 %doc AUTHORS README.rst
-%{_mandir}/man8/dnf-builddep.*
-%{_mandir}/man8/dnf-config-manager.*
+%doc %{_mandir}/man8/dnf-builddep.*
+%doc %{_mandir}/man8/dnf-config-manager.*
 %if %{with copr_plugin}
-%{_mandir}/man8/dnf-copr.*
+%doc %{_mandir}/man8/dnf-copr.*
 %else
 %exclude %{_mandir}/man8/dnf-copr.*
 %endif
-%{_mandir}/man8/dnf-changelog.*
-%{_mandir}/man8/dnf-debug.*
-%{_mandir}/man8/dnf-debuginfo-install.*
-%{_mandir}/man8/dnf-download.*
-%{_mandir}/man8/dnf-generate_completion_cache.*
-%{_mandir}/man8/dnf-groups-manager.*
-%{_mandir}/man8/dnf-needs-restarting.*
-%{_mandir}/man8/dnf-repoclosure.*
-%{_mandir}/man8/dnf-repodiff.*
-%{_mandir}/man8/dnf-repograph.*
-%{_mandir}/man8/dnf-repomanage.*
-%{_mandir}/man8/dnf-reposync.*
+%doc %{_mandir}/man8/dnf-changelog.*
+%doc %{_mandir}/man8/dnf-debug.*
+%doc %{_mandir}/man8/dnf-debuginfo-install.*
+%doc %{_mandir}/man8/dnf-download.*
+%doc %{_mandir}/man8/dnf-generate_completion_cache.*
+%doc %{_mandir}/man8/dnf-groups-manager.*
+%doc %{_mandir}/man8/dnf-needs-restarting.*
+%doc %{_mandir}/man8/dnf-repoclosure.*
+%doc %{_mandir}/man8/dnf-repodiff.*
+%doc %{_mandir}/man8/dnf-repograph.*
+%doc %{_mandir}/man8/dnf-repomanage.*
+%doc %{_mandir}/man8/dnf-reposync.*
 %dir %{_sysconfdir}/dnf/protected.d
 %ghost %{_var}/cache/dnf/packages.db
 %config(noreplace) %{_sysconfdir}/dnf/plugins/debuginfo-install.conf
@@ -321,53 +321,53 @@ ctest -VV
 %{_bindir}/yum-debug-restore
 %{_bindir}/yum-groups-manager
 %{_bindir}/yumdownloader
-%{_mandir}/man1/dnf-utils.*
-%{_mandir}/man1/package-cleanup.*
-%{_mandir}/man1/yumdownloader.*
-%{_mandir}/man8/yum-copr.*
-%{_mandir}/man1/yum-changelog.*
-%{_mandir}/man1/debuginfo-install.*
-%{_mandir}/man1/yum-groups-manager.*
-%{_mandir}/man1/needs-restarting.*
-%{_mandir}/man1/repo-graph.*
-%{_mandir}/man1/repoclosure.*
-%{_mandir}/man1/repodiff.*
-%{_mandir}/man1/repomanage.*
-%{_mandir}/man1/reposync.*
-%{_mandir}/man1/yum-builddep.*
-%{_mandir}/man1/yum-config-manager.*
-%{_mandir}/man1/yum-debug-dump.*
-%{_mandir}/man1/yum-debug-restore.*
-%{_mandir}/man1/yum-utils.1.*
+%doc %{_mandir}/man1/dnf-utils.*
+%doc %{_mandir}/man1/package-cleanup.*
+%doc %{_mandir}/man1/yumdownloader.*
+%doc %{_mandir}/man8/yum-copr.*
+%doc %{_mandir}/man1/yum-changelog.*
+%doc %{_mandir}/man1/debuginfo-install.*
+%doc %{_mandir}/man1/yum-groups-manager.*
+%doc %{_mandir}/man1/needs-restarting.*
+%doc %{_mandir}/man1/repo-graph.*
+%doc %{_mandir}/man1/repoclosure.*
+%doc %{_mandir}/man1/repodiff.*
+%doc %{_mandir}/man1/repomanage.*
+%doc %{_mandir}/man1/reposync.*
+%doc %{_mandir}/man1/yum-builddep.*
+%doc %{_mandir}/man1/yum-config-manager.*
+%doc %{_mandir}/man1/yum-debug-dump.*
+%doc %{_mandir}/man1/yum-debug-restore.*
+%doc %{_mandir}/man1/yum-utils.1.*
 
 %files -n python-dnf-plugin-leaves
 %{python3_sitelib}/dnf-plugins/leaves.*
 %{python3_sitelib}/dnf-plugins/__pycache__/leaves.*
-%{_mandir}/man8/dnf-leaves.*
+%doc %{_mandir}/man8/dnf-leaves.*
 
 %files -n python-dnf-plugin-local
 %config(noreplace) %{_sysconfdir}/dnf/plugins/local.conf
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
-%{_mandir}/man8/dnf-local.*
+%doc %{_mandir}/man8/dnf-local.*
 
 %files -n python-dnf-plugin-show-leaves
 %{python3_sitelib}/dnf-plugins/show_leaves.*
 %{python3_sitelib}/dnf-plugins/__pycache__/show_leaves.*
-%{_mandir}/man8/dnf-show-leaves.*
+%doc %{_mandir}/man8/dnf-show-leaves.*
 
 %files -n python-dnf-plugin-versionlock
 %config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.conf
 %config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.list
 %{python3_sitelib}/dnf-plugins/versionlock.*
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
-%{_mandir}/man8/dnf-versionlock.*
-%{_mandir}/man5/yum-versionlock.conf.5*
-%{_mandir}/man8/yum-versionlock.8*
+%doc %{_mandir}/man8/dnf-versionlock.*
+%doc %{_mandir}/man5/yum-versionlock.conf.5*
+%doc %{_mandir}/man8/yum-versionlock.8*
 
 %files -n python-dnf-plugin-post-transaction-actions
 %config(noreplace) %{_sysconfdir}/dnf/plugins/post-transaction-actions.conf
 %config(noreplace) %{_sysconfdir}/dnf/plugins/post-transaction-actions.d
 %{python3_sitelib}/dnf-plugins/post-transaction-actions.*
 %{python3_sitelib}/dnf-plugins/__pycache__/post-transaction-actions.*
-%{_mandir}/man8/dnf-post-transaction-actions.*
+%doc %{_mandir}/man8/dnf-post-transaction-actions.*
