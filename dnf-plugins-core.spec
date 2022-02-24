@@ -8,7 +8,7 @@
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
 Version:	4.0.24
-Release:	1
+Release:	2
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
