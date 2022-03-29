@@ -1,14 +1,14 @@
-%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 4.2.14}
+%{?!dnf_lowest_compatible: %global dnf_lowest_compatible 4.11.0}
 %define dnf_plugins_extra 2.0.0
-%define hawkey_version 0.46.1
+%define hawkey_version 0.64.0
 
 # Copr targets are not available for OpenMandriva
 %bcond_with copr_plugin
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.0.24
-Release:	2
+Version:	4.1.0
+Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
@@ -195,6 +195,17 @@ Post transaction actions Plugin for DNF, Python 3 version. Plugin runs actions
 (shell commands) after transaction is completed. Actions are defined in action
 files.
 
+%package -n python-dnf-plugin-modulesync
+Summary:	Download module metadata and packages and create repository
+Requires:	python-%{name} = %{version}-%{release}
+Requires:	createrepo_c >= 0.17.4
+Provides:	dnf-plugin-modulesync =  %{version}-%{release}
+Provides:	dnf-command(modulesync)
+
+%description -n python-dnf-plugin-modulesync
+Download module metadata from all enabled repositories, module artifacts and profiles of matching modules and create
+repository.
+
 %prep
 %autosetup -p1
 
@@ -371,3 +382,8 @@ ctest -VV
 %{python3_sitelib}/dnf-plugins/post-transaction-actions.*
 %{python3_sitelib}/dnf-plugins/__pycache__/post-transaction-actions.*
 %doc %{_mandir}/man8/dnf-post-transaction-actions.*
+
+%files -n python-dnf-plugin-modulesync
+%{python3_sitelib}/dnf-plugins/modulesync.*
+%{python3_sitelib}/dnf-plugins/__pycache__/modulesync.*
+%doc %{_mandir}/man8/dnf-modulesync.*
