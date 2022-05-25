@@ -7,7 +7,7 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.1.0
+Version:	4.2.0
 Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
@@ -188,7 +188,7 @@ you to e.g. protect packages from being updated by newer versions.
 %package -n python-dnf-plugin-post-transaction-actions
 Summary:	Post transaction actions Plugin for DNF
 Requires:	python-%{name} = %{version}-%{release}
-Provides:       dnf-plugin-post-transaction-actions =  %{version}-%{release}
+Provides:	dnf-plugin-post-transaction-actions =  %{version}-%{release}
 
 %description -n python-dnf-plugin-post-transaction-actions
 Post transaction actions Plugin for DNF, Python 3 version. Plugin runs actions
