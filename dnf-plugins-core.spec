@@ -7,8 +7,8 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.3.1
-Release:	2
+Version:	4.4.0
+Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/%{name}
@@ -33,6 +33,9 @@ Provides:	dnf-command(groups-manager)
 Provides:	dnf-command(repoclosure)
 Provides:	dnf-command(repodiff)
 Provides:	dnf-command(repograph)
+Provides:	dnf-command(system-upgrade)            
+Provides:	dnf-command(offline-upgrade)            
+Provides:	dnf-command(offline-distrosync)
 Provides:	dnf-command(repomanage)
 Provides:	dnf-command(reposync)
 
@@ -55,6 +58,7 @@ Provides:	dnf-plugin-repograph = %{version}-%{release}
 Provides:	dnf-plugin-repomanage = %{version}-%{release}
 Provides:	dnf-plugin-reposync = %{version}-%{release}
 Conflicts:	dnf-plugins-extras-common-data < %{dnf_plugins_extra}
+Conflicts:	python-dnf-plugin-system-upgrade < 4.1.0
 
 %description
 Core Plugins for DNF. This package enhances DNF with the builddep,
@@ -71,10 +75,13 @@ BuildRequires:	python-dnf >= %{dnf_lowest_compatible}
 BuildRequires:	dbus-python
 BuildRequires:	python-sphinx
 BuildRequires:	python-setuptools
+BuildRequires:	python3dist(systemd-python)
+BuildRequires:	pkgconfig(systemd)
 Requires:	python-dnf >= %{dnf_lowest_compatible}
 Requires:	python-hawkey >= %{hawkey_version}
 Suggests:	dbus-python
 Requires:	python-dateutil
+Requires:	python3dist(systemd-python)
 #Requires:	python3egg(distro)
 
 Conflicts:	%{name} <= 0.1.5
@@ -240,6 +247,11 @@ ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-debug-restore
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yum-groups-manager
 ln -sf %{_libexecdir}/dnf-utils %{buildroot}%{_bindir}/yumdownloader
 
+mkdir -p %{buildroot}%{_unitdir}/system-update.target.wants/
+cd %{buildroot}%{_unitdir}/system-update.target.wants/
+  ln -sr ../dnf-system-upgrade.service
+cd ..
+
 # Ensure code is byte compiled
 %py_compile %{buildroot}
 
@@ -268,6 +280,7 @@ ctest -VV
 %doc %{_mandir}/man8/dnf-repograph.*
 %doc %{_mandir}/man8/dnf-repomanage.*
 %doc %{_mandir}/man8/dnf-reposync.*
+%doc %{_mandir}/man8/dnf-system-upgrade.*
 %dir %{_sysconfdir}/dnf/protected.d
 %ghost %{_var}/cache/dnf/packages.db
 %config(noreplace) %{_sysconfdir}/dnf/plugins/debuginfo-install.conf
@@ -311,7 +324,12 @@ ctest -VV
 %{python3_sitelib}/dnf-plugins/__pycache__/repomanage.*
 %{python3_sitelib}/dnf-plugins/reposync.py
 %{python3_sitelib}/dnf-plugins/__pycache__/reposync.*
+%{python3_sitelib}/dnf-plugins/system_upgrade.py
+%{python3_sitelib}/dnf-plugins/__pycache__/system_upgrade.*
 %{python3_sitelib}/dnfpluginscore/
+%{_unitdir}/dnf-system-upgrade.service            
+%{_unitdir}/dnf-system-upgrade-cleanup.service            
+%{_unitdir}/system-update.target.wants/dnf-system-upgrade.service
 
 %files -n dnf-utils
 %{_libexecdir}/dnf-utils
