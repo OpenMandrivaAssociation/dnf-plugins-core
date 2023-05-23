@@ -7,7 +7,7 @@
 
 Summary:	Core Plugins for DNF
 Name:		dnf-plugins-core
-Version:	4.4.0
+Version:	4.4.1
 Release:	1
 Group:		System/Configuration/Packaging
 License:	GPLv2+
@@ -115,7 +115,6 @@ Provides:	pkg-command(debuginfo-install)
 Conflicts:	urpmi-debug-info-install
 # Conflict with older versions where debuginfo-install was bundled
 Conflicts:	gdb < 8.0
-Requires:	dnf >= %{dnf_lowest_compatible}
 Requires:	%{name} = %{version}-%{release}
 Requires:	python-dnf >= %{dnf_lowest_compatible}
 
