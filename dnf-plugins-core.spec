@@ -260,10 +260,10 @@ ctest -VV
 %files -f %{name}.lang
 %license COPYING
 %doc AUTHORS README.rst
-%doc %{_mandir}/man8/dnf-builddep.*
-%doc %{_mandir}/man8/dnf-config-manager.*
+#doc %{_mandir}/man8/dnf-builddep.*
+#doc %{_mandir}/man8/dnf-config-manager.*
 %if %{with copr_plugin}
-%doc %{_mandir}/man8/dnf-copr.*
+#doc %{_mandir}/man8/dnf-copr.*
 %else
 %exclude %{_mandir}/man8/dnf-copr.*
 %endif
