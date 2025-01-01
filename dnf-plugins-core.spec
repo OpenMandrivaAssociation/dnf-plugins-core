@@ -271,6 +271,8 @@ ctest -VV
 %doc %{_mandir}/man8/dnf4-debug.*
 %doc %{_mandir}/man8/dnf4-debuginfo-install.*
 %doc %{_mandir}/man8/dnf4-download.*
+%doc %{_mandir}/man8/dnf4-expired-pgp-keys.8.*
+%doc %{_mandir}/man8/dnf4-pre-transaction-actions.8.*
 %doc %{_mandir}/man8/dnf4-generate_completion_cache.*
 %doc %{_mandir}/man8/dnf4-groups-manager.*
 %doc %{_mandir}/man8/dnf4-needs-restarting.*
@@ -397,7 +399,7 @@ ctest -VV
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
 %doc %{_mandir}/man8/dnf4-versionlock.*
 %doc %{_mandir}/man5/yum-versionlock.conf.5*
-#doc %{_mandir}/man8/yum-versionlock.8*
+%doc %{_mandir}/man8/yum-versionlock.8.*
 
 %files -n python-dnf-plugin-post-transaction-actions
 %config(noreplace) %{_sysconfdir}/dnf/plugins/post-transaction-actions.conf
