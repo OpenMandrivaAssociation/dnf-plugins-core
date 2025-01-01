@@ -265,7 +265,7 @@ ctest -VV
 %if %{with copr_plugin}
 #doc %{_mandir}/man8/dnf-copr.*
 %else
-%exclude %{_mandir}/man8/dnf-copr.*
+#exclude %{_mandir}/man8/dnf-copr.*
 %endif
 #doc %{_mandir}/man8/dnf-changelog.*
 #doc %{_mandir}/man8/dnf-debug.*
@@ -352,7 +352,7 @@ ctest -VV
 %doc %{_mandir}/man1/dnf-utils.*
 %doc %{_mandir}/man1/package-cleanup.*
 %doc %{_mandir}/man1/yumdownloader.*
-%doc %{_mandir}/man8/yum-copr.*
+#doc %{_mandir}/man8/yum-copr.*
 %doc %{_mandir}/man1/yum-changelog.*
 %doc %{_mandir}/man1/debuginfo-install.*
 %doc %{_mandir}/man1/yum-groups-manager.*
@@ -371,36 +371,36 @@ ctest -VV
 %files -n python-dnf-plugin-leaves
 %{python3_sitelib}/dnf-plugins/leaves.*
 %{python3_sitelib}/dnf-plugins/__pycache__/leaves.*
-%doc %{_mandir}/man8/dnf-leaves.*
+#doc %{_mandir}/man8/dnf-leaves.*
 
 %files -n python-dnf-plugin-local
 %config(noreplace) %{_sysconfdir}/dnf/plugins/local.conf
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
-%doc %{_mandir}/man8/dnf-local.*
+#doc %{_mandir}/man8/dnf-local.*
 
 %files -n python-dnf-plugin-show-leaves
 %{python3_sitelib}/dnf-plugins/show_leaves.*
 %{python3_sitelib}/dnf-plugins/__pycache__/show_leaves.*
-%doc %{_mandir}/man8/dnf-show-leaves.*
+#doc %{_mandir}/man8/dnf-show-leaves.*
 
 %files -n python-dnf-plugin-versionlock
 %config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.conf
 %config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.list
 %{python3_sitelib}/dnf-plugins/versionlock.*
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
-%doc %{_mandir}/man8/dnf-versionlock.*
+#doc %{_mandir}/man8/dnf-versionlock.*
 %doc %{_mandir}/man5/yum-versionlock.conf.5*
-%doc %{_mandir}/man8/yum-versionlock.8*
+#doc %{_mandir}/man8/yum-versionlock.8*
 
 %files -n python-dnf-plugin-post-transaction-actions
 %config(noreplace) %{_sysconfdir}/dnf/plugins/post-transaction-actions.conf
 %config(noreplace) %{_sysconfdir}/dnf/plugins/post-transaction-actions.d
 %{python3_sitelib}/dnf-plugins/post-transaction-actions.*
 %{python3_sitelib}/dnf-plugins/__pycache__/post-transaction-actions.*
-%doc %{_mandir}/man8/dnf-post-transaction-actions.*
+#doc %{_mandir}/man8/dnf-post-transaction-actions.*
 
 %files -n python-dnf-plugin-modulesync
 %{python3_sitelib}/dnf-plugins/modulesync.*
 %{python3_sitelib}/dnf-plugins/__pycache__/modulesync.*
-%doc %{_mandir}/man8/dnf-modulesync.*
+#doc %{_mandir}/man8/dnf-modulesync.*
