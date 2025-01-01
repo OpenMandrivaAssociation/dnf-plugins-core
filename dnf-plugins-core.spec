@@ -267,19 +267,19 @@ ctest -VV
 %else
 %exclude %{_mandir}/man8/dnf-copr.*
 %endif
-%doc %{_mandir}/man8/dnf-changelog.*
-%doc %{_mandir}/man8/dnf-debug.*
-%doc %{_mandir}/man8/dnf-debuginfo-install.*
-%doc %{_mandir}/man8/dnf-download.*
-%doc %{_mandir}/man8/dnf-generate_completion_cache.*
-%doc %{_mandir}/man8/dnf-groups-manager.*
-%doc %{_mandir}/man8/dnf-needs-restarting.*
-%doc %{_mandir}/man8/dnf-repoclosure.*
-%doc %{_mandir}/man8/dnf-repodiff.*
-%doc %{_mandir}/man8/dnf-repograph.*
-%doc %{_mandir}/man8/dnf-repomanage.*
-%doc %{_mandir}/man8/dnf-reposync.*
-%doc %{_mandir}/man8/dnf-system-upgrade.*
+#doc %{_mandir}/man8/dnf-changelog.*
+#doc %{_mandir}/man8/dnf-debug.*
+#doc %{_mandir}/man8/dnf-debuginfo-install.*
+#doc %{_mandir}/man8/dnf-download.*
+#doc %{_mandir}/man8/dnf-generate_completion_cache.*
+#doc %{_mandir}/man8/dnf-groups-manager.*
+#doc %{_mandir}/man8/dnf-needs-restarting.*
+#doc %{_mandir}/man8/dnf-repoclosure.*
+#doc %{_mandir}/man8/dnf-repodiff.*
+#doc %{_mandir}/man8/dnf-repograph.*
+#doc %{_mandir}/man8/dnf-repomanage.*
+#doc %{_mandir}/man8/dnf-reposync.*
+#doc %{_mandir}/man8/dnf-system-upgrade.*
 %dir %{_sysconfdir}/dnf/protected.d
 %ghost %{_var}/cache/dnf/packages.db
 %config(noreplace) %{_sysconfdir}/dnf/plugins/debuginfo-install.conf
