@@ -16,6 +16,7 @@ Source0:	https://github.com/rpm-software-management/dnf-plugins-core/archive/%{v
 Patch0:		dnf-plugins-core-4.0.4-sphinx-build.patch
 
 BuildArch:	noarch
+BuildRequires:  make
 BuildRequires:	cmake
 BuildRequires:	gettext
 Requires:	python-dnf-plugins-core = %{version}-%{release}
