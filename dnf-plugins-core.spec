@@ -297,8 +297,8 @@ ctest -VV
 %{python3_sitelib}/dnf-plugins/__pycache__/builddep.*
 %{python3_sitelib}/dnf-plugins/config_manager.py
 %{python3_sitelib}/dnf-plugins/__pycache__/config_manager.*
-#{python3_sitelib}/dnf-plugins/__pycache__/expired-pgp-keys.cpython-311.pyc
-#{python3_sitelib}/dnf-plugins/__pycache__/pre-transaction-actions.cpython-311.pyc
+%{python3_sitelib}/dnf-plugins/__pycache__/expired-pgp-keys.cpython-*.pyc
+%{python3_sitelib}/dnf-plugins/__pycache__/pre-transaction-actions.cpython-*.pyc
 %{python3_sitelib}/dnf-plugins/expired-pgp-keys.py
 %{python3_sitelib}/dnf-plugins/pre-transaction-actions.py
 %if %{with copr_plugin}
